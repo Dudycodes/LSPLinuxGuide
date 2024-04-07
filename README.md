@@ -11,7 +11,7 @@ cd intelFPGA_lite/20.1/quartus/bin
 ./quartus
 ```
 
-(Pozn. cestu bude třeba upravit pokud při instalaci zvolíte jiný adresář než home)
+(Pozn. cestu bude třeba upravit pokud při instalaci zvolíte jiný adresář než domovský adresář Vašeho uživatelského účtu)
 
 ## Připojení desky - zpřístupnění USBBlasteru
 
