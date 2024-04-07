@@ -6,6 +6,10 @@
 GHDL_FLAGS='-fsynopsys --std=08'
 
 echo "INFO: running first simulation"
+
+#TODO update with corresponding .vhd file(s) (rename ../LCDlogic0.vhd correspondingly and add 
+# your .vhd file of given bitmap from LSPTools
+# e.g. ghdl -a $GHDL_FLAGS ../LCDpackage.vhd ../ImgL10.vhd ../LCDlogic0.vhd ../testbench_LCDlogic.vhd
 ghdl -a $GHDL_FLAGS ../LCDpackage.vhd ../LCDlogic0.vhd ../testbench_LCDlogic.vhd
 
 if [ $? -gt 0 ] # ERRORLEVEL should be equal to exitcode in this case, we want it to be 0 
