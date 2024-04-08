@@ -39,6 +39,7 @@ Nevyužívejte apt! Obsahuje zastaralou verzi, která neobsahuje mnohé nutné.
 ```
 sudo snap install ghdl
 ```
+### Simulace pro HW3
 
 Od roku 2024 je v LSP k simulaci LCD displaye k dispozici .bat script. Ten zde poskytuji přepsaný do bashe.
 Návod na úpravu testbench souboru je tedy shodný pro Windows i Linux a mělo by tak stačit pouze opravit cestu 
@@ -62,4 +63,20 @@ wine-mono. Ten lze přidat následovně:
 U nástrojů **Bitmap to VHDL** a **LCD Geometry Rulers** se zdá by pak již neměl být problém. 
 
 Ovšem **Testbench Viewer** jsem nezprovoznil. Jednodušší bylo připravit [tento python script](ghdl_sim/lsp_txt_to_ppm.py), který převádí výstup simulace na .ppm
+
+### Simulace pro HW4
+
+Stejně jako pro HW3 jsem přepsal .bat skript pro spuštění simulací v ghdl do [bashe](ghdl_sim/runtbanim.sh) a upravil jsem předešlý [python script](ghdl_sim/lsp_txt_to_gif.py) 
+tak, aby prošel celý vygenerovaný soubor a udělal ze každého obsaženého "frame" jeden "frame" .gif . K dostání i jako uživatelsky přívětivější [Jupyter notebook](ghdl_sim/lsp_txt_to_anim.ipnb).
+
+![vzor k HW4](media/out.gif)
+
+## Disclaimer
+
+Prosím berte všechny poskytnuté kódy spíše jako takové ["art of bodge"](https://www.youtube.com/watch?v=lIFE7h3m40U)... 
+nejsou krásné, nejsou dokonalé, nejsou dokonce ani úplné, ale účel většinou plní. 
+
+Složitější věci se pokusím ozdrojovat - z pravidla jsem je nevymyslel, spíš někde poctivě ukradl.
+
+Díky mnohokrát a přeji příjemný průchod studiem!
 
