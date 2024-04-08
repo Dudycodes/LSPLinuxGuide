@@ -67,7 +67,7 @@ Ovšem **Testbench Viewer** jsem nezprovoznil. Jednodušší bylo připravit [te
 ### Simulace pro HW4
 
 Stejně jako pro HW3 jsem přepsal .bat skript pro spuštění simulací v ghdl do [bashe](ghdl_sim/runtbanim.sh) a upravil jsem předešlý [python script](ghdl_sim/lsp_txt_to_gif.py) 
-tak, aby prošel celý vygenerovaný soubor a udělal ze každého obsaženého "frame" jeden "frame" .gif . K dostání i jako uživatelsky přívětivější [Jupyter notebook](ghdl_sim/lsp_txt_to_anim.ipnb).
+tak, aby prošel celý vygenerovaný soubor a udělal ze každého obsaženého "frame" jeden "frame" .gif . K dostání i jako uživatelsky přívětivější [Jupyter notebook](ghdl_sim/lsp_txt_to_anim.ipynb).
 
 ![vzor k HW4](media/out.gif)
 
