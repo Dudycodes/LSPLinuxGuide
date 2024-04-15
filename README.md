@@ -1,6 +1,8 @@
 # LSP Linux Guide
-Tento návod vznikl jako soubor návodů k vyřešení problémů vzniklých rozdíly v OS (Windows / Linux - primárně Ubuntu),
+Tento návod vznikl jako soubor návodů k vyřešení problémů vzniklých rozdíly v OS (Windows / Linux - primárně Ubuntu 20.04 LTS),
 na které jsem narazil při řešení domácích úloh v předmětu LSP na FEL ČVUT.
+
+> Pozn. použití Ubuntu 22.04 LTS může být problematické vzhledem k přejmenování některých závislostí (např. lib32gcc1 na lib32gcc1-s1)
 
 ## Instalace Quartus II
 Instalace je prakticky totožná jako na [Windows](https://dcenet.fel.cvut.cz/edu/fpga/install.aspx) - doporučuji však verzi [20.1](https://www.intel.com/content/www/us/en/software-kit/661017/intel-quartus-prime-lite-edition-design-software-version-20-1-for-linux.html)
