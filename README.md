@@ -1,4 +1,9 @@
 # LSP Linux Guide
+
+**(For english version please follow [this link](en/README.md))**
+
+## Úvod
+
 Tento návod vznikl jako soubor návodů k vyřešení problémů vzniklých rozdíly v OS (Windows / Linux - primárně Ubuntu 20.04 LTS),
 na které jsem narazil při řešení domácích úloh v předmětu LSP na FEL ČVUT.
 
@@ -19,14 +24,37 @@ cd intelFPGA_lite/20.1/quartus/bin
 
 postupujte dle: https://www.rocketboards.org/foswiki/Documentation/UsingUSBBlasterUnderLinux
 
+> Pozn. Na ubuntu 22.04 jsem se setkal s problémem s JTAGem kdy jsem nezprovoznil nahrávání do desky. Tento problém jsem bohužel již nedořešil. 
+
 ## Simulace (.vwf)
 
-Bude doplněno časem... (prozatím ve zkratce - stačí akorát přečíst, co je doopravdy v chybové hlášce tedy - upravit podle toho nastavení simulace:
-To znamená opravit cestu k .vwf souboru, odstranit jeden parametr a případně doinstalovat všechny závislosti quartusu)
+Obecně řečeno - řešení všech problémů spojených ze simulací lze vyčíst z Error logu, pro zjednodušení zde uvádím celý postup.
+
+Čekají Vás celkem tři opravy - jednu je nutné provést pouze jednou, zbylé dvě pravděpodobně vždy -
+
+### 1. Oprava názvu .vwf souboru
+
+![Oprava nazvu souboru .vwf - chyba](media/sim_error_name.png)
+
+Pokud se pokoušíte spustit simulaci po přejmenování Waveform souboru z defaultního _Waveform.vwf_, je třeba opravit jeho název v okně _Simulation-\>Simulation Settings_ v řádku _Testbench Generation Command_ flag _--vector_source_.
+
+![Oprava nazvu souboru .vwf - oprava](media/sim_error_name_resolve.png)
+
+### 2. Oprava flagu -novopt
+
+![Oprava flagu - chyba](media/sim_error_flag.png)
+
+Ve vzorové simulaci je defaultně obsažen ve scriptu simulace flag _-novopt_ který způsobuje chybu, jelikož již je _depricated_. Stačí jej odstranit.
+
+![Oprava flagu - oprava](media/sim_error_flag_resolve.png)
+
+### 3. Instalace potřebných knihoven / závislostí
+
+Chybu jsem se nepokoušel replikovat - poznáte z error logu, pokud nastane. Pro vyřešení nainstalujte potřebné závislosti podle [tohoto návodu](https://gist.github.com/ihsan314/2343959869d2ed4f3c5835a5473bff58#how-to-install-modelsim-and-quartus-on-fedora-32-and-ubuntu-2004).
 
 ## Update souboru v programmeru
 
-Narazil jsem na bug, kdy v programmeru zůstává označený k nahrání jiný soubor, než je aktuální zkompilovaná Top-Level Entity. Stačí je jen nastavit správně:
+Narazil jsem na bug, kdy v programmeru zůstává označený k nahrání jiný soubor, než je aktuální zkompilovaná Top-Level Entity. Stačí je jen nastavit nastavit v programmeru správný output (.sof) file přes ikonu _Add file_.
 
 ## Simulace LCD s GHDL
 
@@ -43,6 +71,8 @@ sudo snap install ghdl
 ```
 ### Simulace pro HW3
 
+#### Konverze .bat na .sh
+
 Od roku 2024 je v LSP k simulaci LCD displaye k dispozici .bat script. Ten zde poskytuji přepsaný do bashe.
 Návod na úpravu testbench souboru je tedy shodný pro Windows i Linux a mělo by tak stačit pouze opravit cestu 
 výstupu v souboru testbench\_LCDlogic.vhd (viz ToDo 1 - constant FILE\_NAME) a případně opravit názvy komponent (viz ToDo 2).
@@ -52,6 +82,8 @@ Následná simulace by pak měla být už jen spuštěním skriptu [runtb.sh](gh
 ```
 ./runtb.sh
 ```
+
+#### LSPTools - wine
 
 První (a zdá se že i jediný) problém nastává u nutného použití **LSPTools**. Ty jakožto .exe soubor nejsou standardně kompatibilní s Linuxem.
 Přesto je lze s větším či menším úspěchem spustit za pomocí nástroje wine. Ten jelikož bylo použito .NET frameworku je třeba pro funkčnost rozšířit o
